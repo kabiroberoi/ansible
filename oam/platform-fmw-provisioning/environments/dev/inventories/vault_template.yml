@@ -1,0 +1,15 @@
+oam_admin_user: ***
+oam_admin_pass: ***
+oam_admin_cred_BASE64: ***
+
+weblogic_admin_user: ***
+weblogic_admin_pass: ***
+
+#password for root used to connect by Ansible to remote VMs
+root_password: ***
+
+#Database sys crednetials for creating DB sys
+db_sys_password: ***
+
+#password for OAM Schema user in DataBase
+oam_schema_password: ***

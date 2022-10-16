@@ -1,0 +1,8 @@
+environment: dev
+oracle_username: oracle
+oracle_group: oracle
+
+oracle_home: /u04/oracle/Oracle/Middleware/Oracle_Home
+oracle_common_home: "{{ oracle_home }}//oracle_common"
+jdk_home: /oracle/jdk
+jdk_soft_loc: /oracle/jdk/jdk1.8

@@ -1,0 +1,68 @@
+- name: Install FMW required Packages
+  become: yes
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ packages_list }}"
+
+- name: Update Kernel Parameters
+  become: yes
+  sysctl:
+    name: "{{ item.key }}"
+    value: "{{ item.value }}"
+    state: present
+  with_dict: "{{ kernel_params }}"
+
+- name: Add Soft Limit for Oracle user
+  become: yes
+  lineinfile:
+    dest: /etc/security/limits.conf
+    line: "{{ oracle_username }} soft  nofile  {{ soft_no_file }}"
+
+- name: Add Hard Limit for Oracle user
+  become: yes
+  lineinfile:
+    dest: /etc/security/limits.conf
+    line: "{{ oracle_username }} hard  nofile  {{ hard_no_file }}"
+
+- name: Add Soft Limit for number of processes
+  become: yes
+  lineinfile:
+    dest: /etc/security/limits.conf
+    line: "{{ oracle_username }} soft  nproc   {{ soft_nproc }}"
+
+- name: Add Hard Limit for Number of Processes
+  become: yes
+  lineinfile:
+    dest: /etc/security/limits.conf
+    line: "{{ oracle_username }} hard  nproc   {{ hard_nproc }}"
+
+- name: Create a shell profile for oracle user
+  become: yes
+  template:
+    src: limits.sh
+    dest: /etc/profile.d/
+
+- name: Create Oracle Home Directory
+  become: yes
+  file:
+    state: directory
+    path: "{{ oracle_home }}"
+    owner: "{{ oracle_username }}"
+    group: "{{ oracle_group }}"
+
+- name: Create JDK Home Directory
+  become: yes
+  file:
+    state: directory
+    path: "{{ jdk_home }}"
+    owner: "{{ oracle_username }}"
+    group: "{{ oracle_group }}"
+
+- name: Create Installer file directory
+  become: yes
+  file:
+    state: directory
+    path: "{{ installer_location }}"
+    owner: "{{ oracle_username }}"
+    group: "{{ oracle_group }}"
