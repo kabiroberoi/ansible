@@ -1,0 +1,30 @@
+#- name: Copy JDK files
+#  template: 
+#    src: "{{ item }}"
+#    dest: "{{ installer_location }}/{{ item | basename }}"
+#  with_fileglob:
+#    - templates/*.*
+
+- name: Extract the JDK archive
+  become: yes
+  unarchive:
+    remote_src: yes
+    dest: "{{ jdk_home }}"
+    src: "/tmp/{{ jdk_file_name }}"
+    owner: "{{ oam_admin_user }}"
+    group: "{{ oracle_group }}"
+
+#- name: Create synlink for Installed JDK
+#  become: yes
+#  file:
+#    src: "{{ symlink_source }}"
+#    dest: "{{ symlink_name }}"
+#    state: link
+
+#- name: Update Owenrship & Permission for Directory
+#  become: yes
+#  file:
+#    recurse: yes
+#    path: "{{ jdk_home }}"
+#    owner: "{{ oam_admin_user }}"
+#    group: "{{ oracle_group }}"
