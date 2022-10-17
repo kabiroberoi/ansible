@@ -20,4 +20,4 @@
   become_user: "{{ oam_admin_user }}"
 #  debug: "{{ symlink_name }}/bin/java -jar {{ installer_location }}/{{ extract_file_name }} -silent -responseFile {{ installer_location }}/{{ rsp_file_name }} -invPtrLoc {{ installer_location }}/OraInst.loc"
   command:
-    cmd: "{{ symlink_name }}/bin/java -jar {{ installer_location }}/{{ extract_file_name }} -silent -responseFile {{ installer_location }}/{{ rsp_file_name }} -invPtrLoc {{ installer_location }}/OraInst.loc"
+    cmd: "{{ symlink_name }}/bin/java -jar {{ installer_location }}/{{ extract_file_name }} -silent -responseFile {{ installer_location }}/{{ rsp_file_name }} -invPtrLoc {{ installer_location }}/oraInst.loc"
