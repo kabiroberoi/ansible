@@ -14,17 +14,17 @@
     owner: "{{ oam_admin_user }}"
     group: "{{ oracle_group }}"
 
-#- name: Create synlink for Installed JDK
-#  become: yes
-#  file:
-#    src: "{{ symlink_source }}"
-#    dest: "{{ symlink_name }}"
-#    state: link
+- name: Create synlink for Installed JDK
+  become: yes
+  file:
+    src: "{{ symlink_source }}"
+    dest: "{{ symlink_name }}"
+    state: link
 
-#- name: Update Owenrship & Permission for Directory
-#  become: yes
-#  file:
-#    recurse: yes
-#    path: "{{ jdk_home }}"
-#    owner: "{{ oam_admin_user }}"
-#    group: "{{ oracle_group }}"
+- name: Update Owenrship & Permission for Directory
+  become: yes
+  file:
+    recurse: yes
+    path: "{{ jdk_home }}"
+    owner: "{{ oam_admin_user }}"
+    group: "{{ oracle_group }}"
