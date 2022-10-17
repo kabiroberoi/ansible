@@ -1,4 +1,4 @@
-- name: Extract the JDK archive
+- name: Extract the WLS archive
   become: yes
   unarchive:
     remote_src: yes
@@ -18,6 +18,6 @@
 - name: FMW Infrastructure Installer
   become: yes
   become_user: "{{ oam_admin_user }}"
-  debug: "{{ symlink_name }}/bin/java -jar {{ installer_location }}/{{ extract_file_name }} -silent -responseFile {{ installer_location }}/{{ rsp_file_name }} -invPtrLoc {{ installer_location }}/OraInst.loc"
-#  command:
-#    cmd: "{{ jdk_soft_loc }}/bin/java -jar {{ installer_location}}/{{ extract_file_name }} -silent -responseFile {{ installer_location}}/silent-fmw-infra.file -invPtrLoc {{ installer_location}}/OraInst.loc"
+#  debug: "{{ symlink_name }}/bin/java -jar {{ installer_location }}/{{ extract_file_name }} -silent -responseFile {{ installer_location }}/{{ rsp_file_name }} -invPtrLoc {{ installer_location }}/OraInst.loc"
+  command:
+    cmd: "{{ jdk_soft_loc }}/bin/java -jar {{ installer_location}}/{{ extract_file_name }} -silent -responseFile {{ installer_location}}/silent-fmw-infra.file -invPtrLoc {{ installer_location}}/OraInst.loc"
