@@ -1,5 +1,6 @@
 - name: Install FMW required Packages
   become: yes
+  become_user: root
   yum:
     name: "{{ item }}"
     state: present
