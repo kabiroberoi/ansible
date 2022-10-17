@@ -1,5 +1,6 @@
 - name: Install FMW required Packages
   become: true
+  become_method: sudo
   yum:
     name: "{{ item }}"
     state: present
