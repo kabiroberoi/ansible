@@ -8,4 +8,4 @@
 
   roles:
     - role: infra_pre_reqs
-#    - role: jdk_setup
+    - role: jdk_setup
