@@ -4,7 +4,7 @@
   become: yes
   become_user: oracle
   vars_files:
-    - environments/{{ environment }}/inventories/vault.yml
+    - environments/{{ cat }}/inventories/vault.yml
 
   roles:
     - role: infra_pre_reqs
