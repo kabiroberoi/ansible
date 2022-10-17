@@ -2,9 +2,9 @@
 - name: install and configure IDM 12c products
   hosts: idm_servers
   become: yes
-  become_user: oracle
+  become_user: root
   vars_files:
-    - environments/{{ cat }}/inventories/vault.yml
+    - environments/{{ environment }}/inventories/vault.yml
 
   roles:
     - role: infra_pre_reqs
