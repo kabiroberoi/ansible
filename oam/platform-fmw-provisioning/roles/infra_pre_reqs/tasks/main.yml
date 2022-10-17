@@ -17,25 +17,25 @@
   become: yes
   lineinfile:
     dest: /etc/security/limits.conf
-    line: "{{ oracle_username }} soft  nofile  {{ soft_no_file }}"
+    line: "{{ oam_admin_user }} soft  nofile  {{ soft_no_file }}"
 
 - name: Add Hard Limit for Oracle user
   become: yes
   lineinfile:
     dest: /etc/security/limits.conf
-    line: "{{ oracle_username }} hard  nofile  {{ hard_no_file }}"
+    line: "{{ oam_admin_user }} hard  nofile  {{ hard_no_file }}"
 
 - name: Add Soft Limit for number of processes
   become: yes
   lineinfile:
     dest: /etc/security/limits.conf
-    line: "{{ oracle_username }} soft  nproc   {{ soft_nproc }}"
+    line: "{{ oam_admin_user }} soft  nproc   {{ soft_nproc }}"
 
 - name: Add Hard Limit for Number of Processes
   become: yes
   lineinfile:
     dest: /etc/security/limits.conf
-    line: "{{ oracle_username }} hard  nproc   {{ hard_nproc }}"
+    line: "{{ oam_admin_user }} hard  nproc   {{ hard_nproc }}"
 
 - name: Create a shell profile for oracle user
   become: yes
@@ -48,7 +48,7 @@
   file:
     state: directory
     path: "{{ oracle_home }}"
-    owner: "{{ oracle_username }}"
+    owner: "{{ oam_admin_user }}"
     group: "{{ oracle_group }}"
 
 - name: Create JDK Home Directory
@@ -56,7 +56,7 @@
   file:
     state: directory
     path: "{{ jdk_home }}"
-    owner: "{{ oracle_username }}"
+    owner: "{{ oam_admin_user }}"
     group: "{{ oracle_group }}"
 
 - name: Create Installer file directory
