@@ -1,2 +1,2 @@
 [idm_servers]
-192.168.29.120 ansible_ssh_user=oracle ansible_connection=ssh ansible_ssh_pass="{{ user_password }}"
+192.168.29.120 ansible_ssh_user=oracle ansible_connection=ssh ansible_ssh_pass="{{ oam_admin_pass }}"
