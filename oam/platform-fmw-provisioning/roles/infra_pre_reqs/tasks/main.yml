@@ -1,5 +1,5 @@
 - name: Install FMW required Packages
-  become: yes
+  become: true
   yum:
     name: "{{ item }}"
     state: present
