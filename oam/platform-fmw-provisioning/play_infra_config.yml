@@ -10,3 +10,4 @@
     - role: infra_pre_reqs
     - role: jdk_setup
     - role: wls_infra_home
+    - role: oam_infra_home
