@@ -1,0 +1,3 @@
+infra_installer_file_name: fmw_12.2.1.4.0_IDM.zip
+extract_file_name: fmw_12.2.1.4.0_idm.jar
+rsp_file_name: wls-silent.rsp

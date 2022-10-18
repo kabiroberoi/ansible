@@ -1,0 +1,23 @@
+- name: Extract the OAM archive
+  become: yes
+  unarchive:
+    remote_src: yes
+    dest: "{{ installer_location }}"
+    src: "/tmp/{{ infra_installer_file_name }}"
+    owner: "{{ oam_admin_user }}"
+    group: "{{ oracle_group }}"
+
+- name: Copy templates to the installation folder
+  template: 
+    src: "{{ item }}"
+    dest: "{{ installer_location }}/{{ item | basename }}"
+  with_fileglob:
+    - templates/*.rsp
+    - templates/*.loc
+
+- name: FMW Infrastructure Installer
+  become: yes
+  become_user: "{{ oam_admin_user }}"
+#  debug: "{{ symlink_name }}/bin/java -jar {{ installer_location }}/{{ extract_file_name }} -silent -responseFile {{ installer_location }}/{{ rsp_file_name }} -invPtrLoc {{ installer_location }}/OraInst.loc"
+  command:
+    cmd: "{{ symlink_name }}/bin/java -jar {{ installer_location }}/{{ extract_file_name }} -silent -responseFile {{ installer_location }}/{{ rsp_file_name }} -invPtrLoc {{ installer_location }}/oraInst.loc"
