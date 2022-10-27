@@ -54,9 +54,8 @@ git -c http.sslVerify=false clone -b develop
    **Setup local environment**
    
     - Copy the key from your laptop to your user home directory
-    - Convert the key to pem format (If they are ppk format generated from puttygen)
-    - Change the permission for the copied key
-	
+	- Convert the key to pem format (If they are ppk format generated from puttygen)
+	- Change the permission for the copied key
 	
 	```bash
 	puttygen yourkey.ppk -O private-openssh -o yourkey.pem
@@ -69,5 +68,24 @@ git -c http.sslVerify=false clone -b develop
     - Edit *vault_secret.sh* file and add password which will be used to encrypt *vault.yml* file: *password=[Password_for_vault_file]*
     
     ```bash
-    cp ~/oam_ansible/idm-basic-configuration/oid/environments/dev/inventories/vault_secret_template.sh ~/oam_ansible/idm-basic-configuration/oam/environments/dev/inventories/vault_secret.sh
-    vi ~/oam_ansible/idm-basic-configuration/oam/environments/dev/inventories/vault_secret.sh
+    cp ~/oam_ansible/idm-basic-configuration/oid/environments/dev/inventories/vault_secret_template.sh ~/oam_ansible/idm-basic-configuration/oid/environments/dev/inventories/vault_secret.sh
+    vi ~/oam_ansible/idm-basic-configuration/oid/environments/dev/inventories/vault_secret.sh
+	```
+
+  **Configure vault.yml**
+	
+	Copy content of the *oam_ansible/idm-basic-configuration/oam/environments/dev/inventories/vault_template.yml* to your notepad and update the parameters values
+	
+	Create vault file
+	
+	```bash
+    ansible-vault create --vault-id dev@~/oam_ansible/idm-basic-configuration/oid/environments/dev/inventories/vault_secret.sh ~/oam_ansible/idm-basic-configuration/oid/environments/dev/inventories/vault.yml
+    ```
+	 The text editor would open, copy the content updated in notepad on your laptop to editor opened in your ansible node. Save the file post updating the content.
+	 
+	 Edit vault file
+
+    ```bash
+    ansible-vault edit ~/oam_ansible/idm-basic-configuration/oid/environments/dev/inventories/vault.yml
+    ```
+	Key in the password for the vault generated earlier. (Password updated in file vault_secret.sh)
