@@ -88,3 +88,5 @@ git -c http.sslVerify=false clone -b develop
     ```bash
     ansible-vault create --vault-id dev@~/oam_ansible/idm-basic-configuration/oid/environments/dev/inventories/vault_secret.sh ~/oam_ansible/idm-basic-configuration/oid/environments/dev/inventories/vault.yml
 	```
+
+	Key in the password for the vault generated earlier. (Password updated in file vault_secret.sh)
