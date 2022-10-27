@@ -73,8 +73,8 @@ git -c http.sslVerify=false clone -b develop
 	```
 
   **Configure vault.yml**
-  
-	Copy content of the *oam_ansible/idm-basic-configuration/oam/environments/dev/inventories/vault_template.yml* to your notepad and update the parameters values
+
+    Copy content of the *oam_ansible/idm-basic-configuration/oam/environments/dev/inventories/vault_template.yml* to your notepad and update the parameters values
 
     Create vault file
     
