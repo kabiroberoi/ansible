@@ -1,5 +1,3 @@
-# ansible
-
 # OID basic configuration   
 **Before running any ansible script pull the newest version of git repository as described [here](#markdown-header-git-pull)**
 
