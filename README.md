@@ -74,20 +74,9 @@ git -c http.sslVerify=false clone -b develop
 
   **Configure vault.yml**
 
-    Copy content of the *oam_ansible/idm-basic-configuration/oam/environments/dev/inventories/vault_template.yml* to your notepad and update the parameters values
-
+    - Copy content of the *oam_ansible/idm-basic-configuration/oam/environments/dev/inventories/vault_template.yml* to your notepad and update the parameters values
     - Create vault file
     
     ```bash
     ansible-vault create --vault-id dev@~/oam_ansible/idm-basic-configuration/oid/environments/dev/inventories/vault_secret.sh ~/oam_ansible/idm-basic-configuration/oid/environments/dev/inventories/vault.yml
-	```
-    
-    The text editor would open, copy the content updated in notepad on your laptop to editor opened in your ansible node. Save the file post updating the content.
- 
-    - Edit vault file
-
-    ```bash
-    ansible-vault edit ~/oam_ansible/idm-basic-configuration/oid/environments/dev/inventories/vault.yml
-	```
-    
-    Key in the password for the vault generated earlier. (Password updated in file vault_secret.sh)
+    ```
