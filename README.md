@@ -51,7 +51,7 @@ git -c http.sslVerify=false clone -b develop
 
    **DEVELOPMENT Environment** 
    
-   **Setup local environment
+   **Setup local environment**
    
     - Copy the key from your laptop to your user home directory
 	- Convert the key to pem format (If they are ppk format generated from puttygen)
