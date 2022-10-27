@@ -38,5 +38,5 @@ git -c http.sslVerify=false push -u origin develop
 cd 
 mkdir oam_ansible
 cd oam_ansible
-git -c http.sslVerify=false clone -b develop https://bb.bamf.intern/scm/idm/idm-basic-configuration.git
+git -c http.sslVerify=false clone -b develop 
 ```
